@@ -1,2 +1,2 @@
 # UNL-U7
-Trabajo practico unidad 7
+Trabajo práctico unidad 7
