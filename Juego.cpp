@@ -11,6 +11,7 @@ void Juego::start() {
 	mostrarOpciones();
 }
 
+//Un texto de bienvenida que se muestra al iniciar partida;
 void Juego::bienvenida() {
 	textcolor(RED);
 	std::cout<<"**************************"<<std::endl;
@@ -21,6 +22,7 @@ void Juego::bienvenida() {
 	textcolor(LIGHTGRAY);
 }
 
+//Función que muestra un texto que informa quien es el jugador activo
 void Juego::mostrarJugador(){
 	std::cout<<std::endl;
 	if(turnoJ1){
