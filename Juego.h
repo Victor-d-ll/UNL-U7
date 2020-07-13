@@ -14,6 +14,7 @@ private:
 	bool turnoJ1;
 	void bienvenida();
 	void mostrarJugador();
+	void mostrarOpciones();
 };
 
 #endif

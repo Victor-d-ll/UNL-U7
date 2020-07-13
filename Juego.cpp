@@ -8,6 +8,7 @@ void Juego::start() {
 	bienvenida();		
 	tablero.mostrarTablero();
 	mostrarJugador();
+	mostrarOpciones();
 }
 
 void Juego::bienvenida() {
@@ -27,4 +28,22 @@ void Juego::mostrarJugador(){
 	}else{
 		std::cout<<"Es el turno del jugador 2"<<std::endl;
 	}
+}
+
+//Función que muestra las opciones del usuario en pantalla
+void Juego::mostrarOpciones(){
+	std::cout<<std::endl;	
+	int posicion = 1;
+	int contador = 1;
+	for(int i=0; i<3; i++)
+	{
+		char letra = 'A';		
+		for (int j=0; j<3; j++) {
+			std::cout<<"Presione "<<contador<<" para poner la ficha en "<<letra<<posicion<<std::endl;
+			letra++;	
+			contador++;
+		}	
+		posicion++;
+	}
+	
 }
