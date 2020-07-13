@@ -13,11 +13,11 @@ void Juego::start() {
 
 void Juego::bienvenida() {
 	textcolor(RED);
-	std::cout<<"**********************"<<std::endl;
+	std::cout<<"**************************"<<std::endl;
 	textcolor(GREEN);
-	std::cout<<"Bienvenido al te-te-ti"<<std::endl;
+	std::cout<<"* Bienvenido al te-te-ti *"<<std::endl;
 	textcolor(RED);
-	std::cout<<"**********************"<<std::endl;
+	std::cout<<"**************************"<<std::endl;
 	textcolor(LIGHTGRAY);
 }
 
