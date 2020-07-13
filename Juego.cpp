@@ -5,9 +5,9 @@ Juego::Juego() {
 }
 
 void Juego::start() {
-	bienvenida();	
-	mostrarJugador();
+	bienvenida();		
 	tablero.mostrarTablero();
+	mostrarJugador();
 }
 
 void Juego::bienvenida() {
@@ -21,6 +21,7 @@ void Juego::bienvenida() {
 }
 
 void Juego::mostrarJugador(){
+	std::cout<<std::endl;
 	if(turnoJ1){
 		std::cout<<"Es el turno del jugador 1"<<std::endl;
 	}else{
