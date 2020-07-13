@@ -4,7 +4,11 @@
 class Ficha {
 public:
 	Ficha();
+	void setValor(char valor);
+	char getValor();
+	
 private:
+	char valor;
 };
 
 #endif
