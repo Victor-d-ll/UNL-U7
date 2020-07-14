@@ -22,12 +22,20 @@ void Juego::start() {
 			}
 			turnoJ1 = !turnoJ1; //Cambio el turno
 		}	
-		verificarFin();
-		//getch();
-		//clrscr();
+		verificarFin(); //Verifica si se lleno el tablero	
 	}	
+	clrscr();
+	mostrarTablero(); //Muestra el tablero para que se vea claramente
+	mensajeEmpate(); //Muestra mensaje de empate
 }
 
+//Mensaje que aparece cuando el juego finaliza sin ganadores
+void Juego::mensajeEmpate(){
+	textcolor(LIGHTGREEN);	
+	std::cout << "Los jugadores han EMPATADO" << std::endl;
+	std::cout << "Gracias por jugar" << std::endl;
+	textcolor(LIGHTGRAY);
+}
 //verifica si el tablero esta lleno
 //si está lleno pone jugando en false
 void Juego::verificarFin(){
@@ -144,7 +152,7 @@ void Juego::mostrarOpciones(){
 		char letra = 'A';		
 		for (int j = 0; j < 3; j++) {
 			std::cout << "Presione " << contador << " para poner la ficha en " 
-				<< letra << posicion <<std::endl;
+				<< letra << posicion << std::endl;
 			letra++;	
 			contador++;
 		}	

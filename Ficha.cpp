@@ -1,5 +1,6 @@
 #include "Ficha.h"
 
+//El constructor carga un valor - para mostrar en pantalla
 Ficha::Ficha() {
 	valor = '-';
 }

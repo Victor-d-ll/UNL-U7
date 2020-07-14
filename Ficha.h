@@ -4,8 +4,9 @@
 class Ficha {
 public:
 	Ficha();
-	void setValor(char valor);
+	
 	char getValor();
+	void setValor(char valor);	
 	
 private:
 	char valor;
