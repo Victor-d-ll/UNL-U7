@@ -47,8 +47,8 @@ void Juego::verificarFin(){
 
 //Muestra un mensaje con el ganador
 void Juego::mostrarGanador(bool turnoJ1){
-	textcolor(LIGHTGREEN);
-	if(turnoJ1) {
+	textcolor(LIGHTGREEN); 
+	if(turnoJ1) { //Se fija de quien es el turno activo
 		std::cout << "El jugador 1 ganó la partida" << std::endl;
 	}else{
 		std::cout << "El jugador 2 ganó la partida" << std::endl;
@@ -64,7 +64,7 @@ bool Juego::hayTateti(){
 //Pone la ficha en la posición correspondiente y marca que ya se usó
 bool Juego::setPosicion(int tecla){	
 	int x,y;	
-	switch(tecla){
+	switch(tecla){ //Carga x e y y marca la opción elegida
 		case 49:
 			x = 0;
 			y = 0;
@@ -123,7 +123,7 @@ bool Juego::setPosicion(int tecla){
 
 //Devuelve el valor segun el turno del jugador
 char Juego::getValorPorTurno(){
-	if(turnoJ1) return 'X';
+	if(turnoJ1) return 'X'; //Retorna el caracter según el turno
 	return 'O';	
 }
 
@@ -147,7 +147,7 @@ void Juego::bienvenida() {
 //Método que muestra un texto que informa quien es el jugador activo
 void Juego::mostrarJugador(){
 	std::cout << std::endl;	
-	if(turnoJ1){
+	if(turnoJ1){ //Dependiendo el turno muestra un mensaje u otro
 		textcolor(LIGHTMAGENTA);
 		std::cout << "!!! Es el turno del jugador 1 !!!" << std::endl;
 	}else{

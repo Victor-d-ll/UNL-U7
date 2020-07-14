@@ -5,7 +5,7 @@ Tablero::Tablero() {
 }
 //Método que imprime al tablero en pantalla
 void Tablero::mostrarTablero(){
-	std::cout << "Vista del tablero:" << std::endl;
+	std::cout << "Vista del tablero:" << std::endl; //Textos informativos
 	std::cout << "  " << "A" << " " << "B" << " " << "C" << std::endl;
 	std::cout << " -------" << std::endl;
 	int fila = 1;
@@ -36,11 +36,11 @@ void Tablero::mostrarTablero(){
 //false si esta vacío
 bool Tablero::estaLleno(){
 	int suma = 0;
-	for(int i = 0; i < 3; i++){
+	for(int i = 0; i < 3; i++){ //Recorre el arreglo de fichas 
 		for(int j = 0; j < 3; j++){
 			if(fichas[i][j].getValor() == 'X' || fichas[i][j].getValor() == 'O')
 			{
-				suma++;
+				suma++; //Si encuentra O ó X carga el contador
 			}
 		}
 	}
@@ -98,33 +98,31 @@ bool Tablero::ChequeaColumnas()
 {
 	int x = 0;
 	int o = 0;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++) //Itera por las columnas para buscar valores
 	{		
 		for(int j = 0; j < 3; j++) {
 			if(fichas[j][i].getValor() == 'X') x++;
 			if(fichas[j][i].getValor() == 'O') o++;
 		}
-		if(x == 3 || o== 3) return true;
+		if(x == 3 || o== 3) return true; //Si hay 3 valores iguales
 		x = 0;
 		o = 0;
 	}
-	return false;
+	return false; //Si no encontró 3 coincidencias
 }
 
 //Método que chequa devuelve true si hay tateti
 bool Tablero::tateti(){
 	if(ChequeaColumnas() || ChequeaDiagonales() || ChequeaFilas() ) {
-		return true;
+		return true; //Retorna true si alguna de los 3 es verdadero
 	}
-	return false;
-	
+	return false;	 //Caso contrario false
 }
-
 
 //Método que devuelve true si la ficha existe en el tablero
 bool Tablero::existeFicha(int x, int y){
 	if(fichas[x][y].getValor() == 'X' || fichas[x][y].getValor() == 'O') {
-		return true;
+		return true; 
 	}
 	return false;
 }

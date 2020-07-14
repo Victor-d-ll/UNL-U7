@@ -7,10 +7,10 @@ Ficha::Ficha() {
 
 //método que le carga un valor a la ficha
 void Ficha::setValor(char valor) {
-	this->valor = valor;
+	this->valor = valor; //Asgina el parametro valor al atributo valor
 }
 
 //método que devuelve el valor de la ficha
 char Ficha::getValor(){
-	return valor;
+	return valor; //Retorna el valor de la ficha
 }
