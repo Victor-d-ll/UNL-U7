@@ -2,15 +2,24 @@
 
 Juego::Juego() {
 	turnoJ1 = true; //Se carga el valor true a la variable turno jugador1
+	jugando = true;
 }
 
 void Juego::start() {
 	bienvenida();		
-	tablero.mostrarTablero();
-	mostrarJugador();
-	mostrarOpciones();
+	while(jugando){
+		mostrarTablero();	
+		mostrarOpciones();
+		mostrarJugador();
+		capturarTecla();
+		jugando=false;
+	}	
 }
 
+
+void Juego::mostrarTablero(){
+	tablero.mostrarTablero();
+}
 //Un texto de bienvenida que se muestra al iniciar partida;
 void Juego::bienvenida() {
 	textcolor(RED);
@@ -26,9 +35,9 @@ void Juego::bienvenida() {
 void Juego::mostrarJugador(){
 	std::cout<<std::endl;
 	if(turnoJ1){
-		std::cout<<"Es el turno del jugador 1"<<std::endl;
+		std::cout<<"!!! Es el turno del jugador 1 !!!"<<std::endl;
 	}else{
-		std::cout<<"Es el turno del jugador 2"<<std::endl;
+		std::cout<<"!!! Es el turno del jugador 2 !!!"<<std::endl;
 	}
 }
 
@@ -46,6 +55,16 @@ void Juego::mostrarOpciones(){
 			contador++;
 		}	
 		posicion++;
-	}
-	
+	}	
 }
+
+//Captura una teclada que debe ser valida como opcion.
+void Juego::capturarTecla(){
+	int tecla = 0;	
+	while(tecla==0){
+		std::cout<<"Ingrese su elección:"<<std::endl;			
+		tecla = getch();
+		if(tecla<49 || tecla>57) tecla = 0;
+	}
+}
+

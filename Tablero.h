@@ -7,11 +7,8 @@ class Tablero {
 public:
 	Tablero();
 	void mostrarTablero();
-	
-private:
-
-	void cargarTablero();
-	
+	bool existeFicha(int x, int y);
+private:		
 	Ficha fichas[3][3];
 };
 

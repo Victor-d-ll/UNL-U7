@@ -4,10 +4,6 @@ Tablero::Tablero() {
 	
 }
 
-void Tablero::cargarTablero(){
-	
-}
-
 void Tablero::mostrarTablero(){
 	std::cout<<"Vista del tablero:"<<std::endl;
 	std::cout<<"  "<<"A"<<" "<<"B"<<" "<<"C"<<std::endl;
@@ -25,3 +21,9 @@ void Tablero::mostrarTablero(){
 }
 
 
+bool Tablero::existeFicha(int x, int y){
+	if(fichas[x][y].getValor() != 'X' ||  fichas[x][y].getValor() != 'O') {
+		return false;
+	}
+	return true;
+}

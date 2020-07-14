@@ -9,12 +9,16 @@ class Juego {
 public:
 	Juego();
 	void start();
+	
 private:	
 	Tablero tablero;
 	bool turnoJ1;
+	bool jugando;
 	void bienvenida();
 	void mostrarJugador();
+	void mostrarTablero();
 	void mostrarOpciones();
+	void capturarTecla();
 };
 
 #endif
