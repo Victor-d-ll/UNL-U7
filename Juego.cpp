@@ -29,9 +29,9 @@ void Juego::start() {
 void Juego::mostrarGanador(bool turnoJ1){
 	clrscr();
 	if(turnoJ1) {
-		std::cout<<"El jugador 1 ganó la partida";
+		std::cout<<"El jugador 1 ganó la partida"<<std::endl;
 	}else{
-		std::cout<<"El jugador 2 ganó la partida";
+		std::cout<<"El jugador 2 ganó la partida"<<std::endl;
 	}
 	std::cout<<"Gracias por jugar!!!";
 }

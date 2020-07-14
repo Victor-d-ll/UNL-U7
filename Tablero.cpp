@@ -34,7 +34,8 @@ void Tablero::mostrarTablero(){
 
 //Método que chequa las diagonales para el tateti
 //devuelve true si hay coincidencia
-bool Tablero::ChequeaDiagonales(){
+bool Tablero::ChequeaDiagonales(){	
+	
 	int x=0;
 	int o=0;
 	//Chequeamos diagonales
@@ -48,9 +49,13 @@ bool Tablero::ChequeaDiagonales(){
 	//Diagonal izquierda-derecha	
 	x=0;
 	o=0;
-	for(int i=3; i>0; i--){
-		if(fichas[i][i].getValor() == 'X') x++;
-		if(fichas[i][i].getValor() == 'O') o++;
+	
+	for(int i=0; i<3; i++){
+		for(int j=2; j>=0; j--){
+			if(fichas[i][j].getValor() == 'X') x++;
+			if(fichas[i][j].getValor() == 'O') o++;
+		}
+		
 	}	
 	if(x == 3 || o== 3) return true;
 	
