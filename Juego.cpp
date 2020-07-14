@@ -14,7 +14,8 @@ void Juego::start() {
 		mostrarJugador();   //Muestra el nombre del jugador activo
 		if(setPosicion(capturarTecla())) //Captura una tecla y setea la ficha
 		{			
-			if(hayTateti()) {				
+			if(hayTateti()) {			
+				mostrarTablero();	//Muestra el tablero
 				mostrarGanador(turnoJ1); //Muestra quien ganó la partida
 				return; //Si hay ganador sale
 			}
@@ -92,7 +93,7 @@ bool Juego::setPosicion(int tecla){
 	
 }
 
-//Función que muestra el tablero
+//Método que muestra el tablero
 void Juego::mostrarTablero(){
 	tablero.mostrarTablero();
 }
@@ -107,7 +108,7 @@ void Juego::bienvenida() {
 	textcolor(LIGHTGRAY);
 }
 
-//Función que muestra un texto que informa quien es el jugador activo
+//Método que muestra un texto que informa quien es el jugador activo
 void Juego::mostrarJugador(){
 	std::cout<<std::endl;
 	textcolor(YELLOW);
@@ -119,7 +120,7 @@ void Juego::mostrarJugador(){
 	textcolor(LIGHTGRAY);
 }
 
-//Función que muestra las opciones del usuario en pantalla
+//Método que muestra las opciones del usuario en pantalla
 void Juego::mostrarOpciones(){
 	std::cout<<std::endl;	
 	int posicion = 1;
