@@ -8,6 +8,7 @@ public:
 	Tablero();
 	void mostrarTablero();
 	bool existeFicha(int x, int y);
+	void setFicha(int x, int y, char c);
 private:		
 	Ficha fichas[3][3];
 };

@@ -20,10 +20,15 @@ void Tablero::mostrarTablero(){
 	std::cout<<" -------"<<std::endl;
 }
 
-
+//Función que devuelve true si la ficha existe en el tablero
 bool Tablero::existeFicha(int x, int y){
-	if(fichas[x][y].getValor() != 'X' ||  fichas[x][y].getValor() != 'O') {
-		return false;
+	if(fichas[x][y].getValor() == 'X' || fichas[x][y].getValor() == 'O') {
+		return true;
 	}
-	return true;
+	return false;
+}
+
+//Función que pone un caracter X o 0 a una posición [x] e [y] del arreglo
+void Tablero::setFicha(int x, int y, char c){
+	fichas[x][y].setValor(c);
 }
