@@ -162,10 +162,11 @@ void Juego::mostrarOpciones(){
 	std::cout << std::endl;	
 	int posicion = 1;
 	int contador = 1;
+	std::cout << "***************************" << std::endl;
 	std::cout << "La ficha del jugador 1 es X" << std::endl;
 	std::cout << "La ficha del jugador 2 es O" << std::endl;
 	std::cout << "***************************" << std::endl;
-	for(int i = 0; i < 3; i++)
+	for(int i = 0; i < 3; i++) //Es un bucle para mostrar las opciones
 	{
 		char letra = 'A';		
 		for (int j = 0; j < 3; j++) {
@@ -180,10 +181,10 @@ void Juego::mostrarOpciones(){
 	}	
 }
 
-//Captura una teclada que debe ser valida como opcion.
+//Captura una teclada que debe ser valida como opción.
 int Juego::capturarTecla(){
 	int tecla = 0;	
-	while(tecla == 0){
+	while(tecla == 0){ //Queda en el bucle si no se ingresa lo deseado
 		std::cout << "Ingrese su elección:" << std::endl;			
 		tecla = getch();
 		if(tecla < 49 || tecla > 57) tecla = 0;
