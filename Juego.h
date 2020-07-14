@@ -15,6 +15,7 @@ private:
 	
 	bool turnoJ1;
 	bool jugando;
+	bool opciones[9];
 	
 	bool hayTateti();
 	bool setPosicion(int tecla);

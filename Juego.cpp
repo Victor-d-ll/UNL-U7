@@ -2,7 +2,10 @@
 
 Juego::Juego() {
 	turnoJ1 = true; //Se carga el valor true a la variable turno jugador1
-	jugando = true;
+	jugando = true; //Variable para el loop principal
+	for (int i=0; i<9; i++){ //Carga verdadero para poder mostrar las opciones
+		opciones[i] = true;
+	}
 }
 
 void Juego::start() {
@@ -58,45 +61,54 @@ bool Juego::hayTateti(){
 	return tablero.tateti();
 }
 
-//Pone la ficha en la posición correspondiente
+//Pone la ficha en la posición correspondiente y marca que ya se usó
 bool Juego::setPosicion(int tecla){	
 	int x,y;	
 	switch(tecla){
 		case 49:
 			x = 0;
 			y = 0;
+			opciones[0] = false;
 			break;
 		case 50:
 			x = 0;
 			y = 1;
+			opciones[1] = false;
 			break;
 		case 51:
 			x = 0;
 			y = 2;
+			opciones[2] = false;
 			break;
 		case 52:
 			x = 1;
 			y = 0;
+			opciones[3] = false;
 			break;	
 		case 53:
 			x = 1;
 			y = 1;
+			opciones[4] = false;
 			break;
 		case 54:
 			x = 1;
 			y = 2;
+			opciones[5] = false;
 			break;
 		case 55:
 			x = 2;
 			y = 0;
+			opciones[6] = false;
 			break;
 		case 56:
 			x = 2;
 			y = 1;
+			opciones[7] = false;
 			break;
 		case 57:
 			x = 2;
 			y = 2;
+			opciones[8] = false;
 			break;
 	}
 	//Si ya hay ficha retorna
@@ -157,8 +169,10 @@ void Juego::mostrarOpciones(){
 	{
 		char letra = 'A';		
 		for (int j = 0; j < 3; j++) {
+			if(opciones[contador-1]) { //Si esta marcado true muestra
 			std::cout << "Presione " << contador << " para poner la ficha en " 
 				<< letra << posicion << std::endl;
+			}
 			letra++;	
 			contador++;
 		}	
