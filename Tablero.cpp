@@ -6,7 +6,7 @@ Tablero::Tablero() {
 //Método que imprime al tablero en pantalla
 void Tablero::mostrarTablero(){
 	std::cout << "Vista del tablero:" << std::endl;
-	std::cout << "  " << "A" << " " << "B" << " " << "C" <<std::endl;
+	std::cout << "  " << "A" << " " << "B" << " " << "C" << std::endl;
 	std::cout << " -------" << std::endl;
 	int fila = 1;
 	for (int i = 0; i < 3; i++){
@@ -38,7 +38,8 @@ bool Tablero::estaLleno(){
 	int suma = 0;
 	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < 3; j++){
-			if(fichas[i][j].getValor() == 'X' || fichas[i][j].getValor() == 'O'){
+			if(fichas[i][j].getValor() == 'X' || fichas[i][j].getValor() == 'O')
+			{
 				suma++;
 			}
 		}

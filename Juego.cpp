@@ -8,7 +8,7 @@ Juego::Juego() {
 void Juego::start() {
 	bienvenida();		
 	while(jugando){
-		
+		clrscr();
 		mostrarTablero();	//Muestra el tablero
 		mostrarOpciones();  //Muestra el menu de opciones
 		mostrarJugador();   //Muestra el nombre del jugador activo
@@ -39,7 +39,7 @@ void Juego::mensajeEmpate(){
 //verifica si el tablero esta lleno
 //si está lleno pone jugando en false
 void Juego::verificarFin(){
-	if(tablero.estaLleno()) jugando=false;
+	if(tablero.estaLleno()) jugando = false;
 }
 
 //Muestra un mensaje con el ganador
@@ -128,15 +128,18 @@ void Juego::bienvenida() {
 	textcolor(RED);
 	std::cout << "**************************" << std::endl;
 	textcolor(LIGHTGRAY);
+	std::cout << "Presiona alguna tecla para continuar" << std::endl;
+	getch();
 }
 
 //Método que muestra un texto que informa quien es el jugador activo
 void Juego::mostrarJugador(){
-	std::cout << std::endl;
-	textcolor(YELLOW);
+	std::cout << std::endl;	
 	if(turnoJ1){
+		textcolor(LIGHTMAGENTA);
 		std::cout << "!!! Es el turno del jugador 1 !!!" << std::endl;
 	}else{
+		textcolor(LIGHTGREEN);
 		std::cout << "!!! Es el turno del jugador 2 !!!" << std::endl;
 	}
 	textcolor(LIGHTGRAY);
