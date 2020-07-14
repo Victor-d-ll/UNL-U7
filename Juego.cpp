@@ -8,15 +8,91 @@ Juego::Juego() {
 void Juego::start() {
 	bienvenida();		
 	while(jugando){
-		mostrarTablero();	
-		mostrarOpciones();
-		mostrarJugador();
-		capturarTecla();
-		jugando=false;
+		
+		mostrarTablero();	//Muestra el tablero
+		mostrarOpciones();  //Muestra el menu de opciones
+		mostrarJugador();   //Muestra el nombre del jugador activo
+		if(setPosicion(capturarTecla())) //Captura una tecla y setea la ficha
+		{			
+			if(hayTateti()) {				
+				mostrarGanador(turnoJ1); //Muestra quien ganó la partida
+				return; //Si hay ganador sale
+			}
+			turnoJ1 = !turnoJ1; //Cambio el turno
+		}		
+		//getch();
+		//clrscr();
 	}	
 }
 
+//Muestra un mensaje con el ganador
+void Juego::mostrarGanador(bool turnoJ1){
+	clrscr();
+	if(turnoJ1) {
+		std::cout<<"El jugador 1 ganó la partida";
+	}else{
+		std::cout<<"El jugador 2 ganó la partida";
+	}
+	std::cout<<"Gracias por jugar!!!";
+}
+//Chequea si hay tateti
+bool Juego::hayTateti(){	
+	return tablero.tateti();
+}
 
+//Pone la ficha en la posición correspondiente
+bool Juego::setPosicion(int tecla){	
+	int x,y;
+	char c;
+	switch(tecla){
+		case 49:
+			x=0;
+			y=0;
+			break;
+		case 50:
+			x=0;
+			y=1;
+			break;
+		case 51:
+			x=0;
+			y=2;
+			break;
+		case 52:
+			x=1;
+			y=0;
+			break;	
+		case 53:
+			x=1;
+			y=1;
+			break;
+		case 54:
+			x=1;
+			y=2;
+			break;
+		case 55:
+			x=2;
+			y=0;
+			break;
+		case 56:
+			x=2;
+			y=1;
+			break;
+		case 57:
+			x=2;
+			y=2;
+			break;
+	}
+	if(tablero.existeFicha(x,y)) return false;
+	
+	if(turnoJ1) c = 'X';
+	else c = 'O';
+	tablero.setFicha(x,y,c);
+	return true;
+	//
+	
+}
+
+//Función que muestra el tablero
 void Juego::mostrarTablero(){
 	tablero.mostrarTablero();
 }
@@ -34,11 +110,13 @@ void Juego::bienvenida() {
 //Función que muestra un texto que informa quien es el jugador activo
 void Juego::mostrarJugador(){
 	std::cout<<std::endl;
+	textcolor(YELLOW);
 	if(turnoJ1){
 		std::cout<<"!!! Es el turno del jugador 1 !!!"<<std::endl;
 	}else{
 		std::cout<<"!!! Es el turno del jugador 2 !!!"<<std::endl;
 	}
+	textcolor(LIGHTGRAY);
 }
 
 //Función que muestra las opciones del usuario en pantalla
@@ -59,12 +137,14 @@ void Juego::mostrarOpciones(){
 }
 
 //Captura una teclada que debe ser valida como opcion.
-void Juego::capturarTecla(){
+int Juego::capturarTecla(){
 	int tecla = 0;	
 	while(tecla==0){
 		std::cout<<"Ingrese su elección:"<<std::endl;			
 		tecla = getch();
 		if(tecla<49 || tecla>57) tecla = 0;
 	}
+	return tecla;
 }
+
 
