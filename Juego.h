@@ -18,6 +18,7 @@ private:
 	
 	bool hayTateti();
 	bool setPosicion(int tecla);
+	char getValorPorTurno();
 	void bienvenida();
 	void mensajeEmpate();
 	void mostrarGanador(bool turnoJ1);

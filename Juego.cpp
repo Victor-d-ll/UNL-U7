@@ -60,8 +60,7 @@ bool Juego::hayTateti(){
 
 //Pone la ficha en la posición correspondiente
 bool Juego::setPosicion(int tecla){	
-	int x,y;
-	char c;
+	int x,y;	
 	switch(tecla){
 		case 49:
 			x = 0;
@@ -103,14 +102,18 @@ bool Juego::setPosicion(int tecla){
 	//Si ya hay ficha retorna
 	if(tablero.existeFicha(x,y)) return false;
 	
-	//Segun el turno escribe la ficha que corresponda
-	if(turnoJ1) c = 'X';
-	else c = 'O';
-	tablero.setFicha(x,y,c);
+	//Segun el turno escribe la ficha que corresponda	
+	tablero.setFicha(x,y,getValorPorTurno());
 	return true;	
 	
 }
 
+
+//Devuelve el valor segun el turno del jugador
+char Juego::getValorPorTurno(){
+	if(turnoJ1) return 'X';
+	return 'O';	
+}
 
 //Método que muestra el tablero
 void Juego::mostrarTablero(){
