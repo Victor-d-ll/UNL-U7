@@ -19,6 +19,7 @@ private:
 	void mostrarJugador();
 	void mostrarOpciones();
 	void mostrarTablero();
+	void verificarFin();
 	
 	int capturarTecla();
 	bool setPosicion(int tecla);

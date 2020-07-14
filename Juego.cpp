@@ -14,27 +14,36 @@ void Juego::start() {
 		mostrarJugador();   //Muestra el nombre del jugador activo
 		if(setPosicion(capturarTecla())) //Captura una tecla y setea la ficha
 		{			
-			if(hayTateti()) {			
+			if(hayTateti()) {	
+				clrscr();
 				mostrarTablero();	//Muestra el tablero
 				mostrarGanador(turnoJ1); //Muestra quien ganó la partida
 				return; //Si hay ganador sale
 			}
 			turnoJ1 = !turnoJ1; //Cambio el turno
-		}		
+		}	
+		verificarFin();
 		//getch();
 		//clrscr();
 	}	
 }
 
+//verifica si el tablero esta lleno
+//si está lleno pone jugando en false
+void Juego::verificarFin(){
+	if(tablero.estaLleno()) jugando=false;
+}
+
 //Muestra un mensaje con el ganador
 void Juego::mostrarGanador(bool turnoJ1){
-	clrscr();
+	textcolor(LIGHTGREEN);
 	if(turnoJ1) {
 		std::cout<<"El jugador 1 ganó la partida"<<std::endl;
 	}else{
 		std::cout<<"El jugador 2 ganó la partida"<<std::endl;
 	}
 	std::cout<<"Gracias por jugar!!!";
+	textcolor(LIGHTGRAY);
 }
 //Chequea si hay tateti
 bool Juego::hayTateti(){	
@@ -125,6 +134,9 @@ void Juego::mostrarOpciones(){
 	std::cout<<std::endl;	
 	int posicion = 1;
 	int contador = 1;
+	std::cout<<"La ficha del jugador 1 es X"<<std::endl;
+	std::cout<<"La ficha del jugador 2 es O"<<std::endl;
+	std::cout<<"***************************"<<std::endl;
 	for(int i=0; i<3; i++)
 	{
 		char letra = 'A';		

@@ -32,33 +32,41 @@ void Tablero::mostrarTablero(){
 	std::cout<<" -------"<<std::endl;
 }
 
+//Retorna verdadero si el tablero esta lleno
+//false si esta vacío
+bool Tablero::estaLleno(){
+	int suma=0;
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(fichas[i][j].getValor() == 'X' || fichas[i][j].getValor() == 'O'){
+				suma++;
+			}
+		}
+	}
+	if(suma<9) return false;
+	return true;
+}
 //Método que chequa las diagonales para el tateti
 //devuelve true si hay coincidencia
-bool Tablero::ChequeaDiagonales(){	
-	
-	int x=0;
-	int o=0;
-	//Chequeamos diagonales
-	//derecha-izquierda
-	for(int i=0; i<3; i++){
-		if(fichas[i][i].getValor() == 'X') x++;
-		if(fichas[i][i].getValor() == 'O') o++;
+bool Tablero::ChequeaDiagonales(){		
+	//Cadena que contendrá XXX o OOO si hay tateti.
+	//Para la diagonal de arriba de derecha a izquierda
+	std::string cadena;
+	cadena="";
+	for (int i=0; i<3; i++){		
+		cadena += fichas[i][i].getValor();		
 	}	
-	if(x == 3 || o==3) return true;
+	//Retorna true si encontró tateti
+	if(cadena=="XXX" || cadena=="OOO") return true;
 	
-	//Diagonal izquierda-derecha	
-	x=0;
-	o=0;
-	
-	for(int i=0; i<3; i++){
-		for(int j=2; j>=0; j--){
-			if(fichas[i][j].getValor() == 'X') x++;
-			if(fichas[i][j].getValor() == 'O') o++;
-		}
-		
-	}	
-	if(x == 3 || o== 3) return true;
-	
+	//Para la diagonal de abajo de derecha a izquierda
+	cadena=""; //Limpiamos la cadena
+	int j=0;
+	for (int i=2; i>=0; i--){		
+		cadena += fichas[i][j].getValor();	
+		j++;
+	}
+	if(cadena=="XXX" || cadena=="OOO") return true;
 	return false;
 }
 

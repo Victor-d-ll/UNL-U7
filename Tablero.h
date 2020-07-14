@@ -13,7 +13,7 @@ public:
 	bool tateti();
 	bool estaLleno();
 private:		
-	bool ChequeaFilas();
+	bool ChequeaFilas(); //VERIFICAR QUE NO ESTAN FUNCIONANDO
 	bool ChequeaDiagonales();
 	bool ChequeaColumnas();
 	Ficha fichas[3][3];
